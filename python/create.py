@@ -35,9 +35,9 @@ def createFiles(name, path):
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="/all.css">
-        <link rel="stylesheet" href="/courses/courses.css">
-        <link rel="stylesheet" href="/courses/{name}/{name}.css">
+        <link rel="stylesheet" href="all.css">
+        <link rel="stylesheet" href="courses/courses.css">
+        <link rel="stylesheet" href="courses/{name}/{name}.css">
         
 
     </head>
@@ -54,9 +54,9 @@ def createFiles(name, path):
             </div>
         </div>
     </body>
-    <script src="/all.js">
+    <script src="all.js">
     </script>
-    <script src="/courses/{name}/{name}.js"></script>
+    <script src="courses/{name}/{name}.js"></script>
     </html>
     """
     if not exist(name, path):
