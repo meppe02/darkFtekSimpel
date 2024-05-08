@@ -1,0 +1,25 @@
+{
+  "name": "darkfteksimpel",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meppe02/darkfteksimpel.git"
+  },
+  "author": "Lirk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meppe02/darkfteksimpel/issues"
+  },
+  "homepage": "https://github.com/meppe02/darkfteksimpel#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "typescript": "^5.4.5"
+  }
+}

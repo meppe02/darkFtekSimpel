@@ -1,0 +1,2 @@
+1. change "mysite" in all.js to the github thing
+2. Add path to "path.txt" (should make it)
