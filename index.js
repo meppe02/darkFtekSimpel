@@ -8,5 +8,6 @@ const realCourses = courses.sort().map(course => {
     <div class="clickable">
         <a href="/courses/${lower}/${lower}.html">
         ${upper}
+        <a>
     </div>`
 })
