@@ -5,10 +5,10 @@ let htmlContent = courses.sort().map(course => {
     const lower = course.toLowerCase();
     return `
         <div class="clickable">
-            <a href="/courses/${lower}/${lower}.html">
+            <a href="courses/${lower}/${lower}.html">
                 ${upper}
             </a>
         </div>`;
-}).join(''); 
+}).join('');
 
 document.getElementById(id).innerHTML = htmlContent;
