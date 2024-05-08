@@ -1,13 +1,14 @@
 const courses = ["tif083", "enn190", "att140", "tif086"];
-const id="courses"
-const realCourses = courses.sort().map(course => {
-    upper=course.toUpperCase();
-    lower=course.toLowerCase();
-    document.getElementById(id).innerHTML+=`
+const id = "courses";
+let htmlContent = courses.sort().map(course => {
+    const upper = course.toUpperCase();
+    const lower = course.toLowerCase();
+    return `
+        <div class="clickable">
+            <a href="/courses/${lower}/${lower}.html">
+                ${upper}
+            </a>
+        </div>`;
+}).join(''); 
 
-    <div class="clickable">
-        <a href="/courses/${lower}/${lower}.html">
-        ${upper}
-        <a>
-    </div>`
-})
+document.getElementById(id).innerHTML = htmlContent;
