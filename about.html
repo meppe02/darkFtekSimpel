@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function getBaseUrl() {
+      const onGithub = window.location.hostname.includes('github.io');
+      return onGithub ? '/darkfteksimpel/' : '/';
+    }
+    const baseUrl = getBaseUrl();
+  </script>
+<body>
+    <div class="main">
+        <h1>
+            ALLT DU BEHÖVER FÖR TEKNISK FYSIK PÅ CHALMERS! SÅ SNITCHA INTE!
+        </h1>
+    </div>
+</body>
+<link id="cssAll" rel="stylesheet" href="">
+<link id="about" rel="stylesheet" href="">
+<script>
+    // Once the DOM is fully loaded, set the correct paths for CSS and dynamically inject scripts
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('cssAll').href = baseUrl + 'all.css';
+      document.getElementById('about').href = baseUrl + 'about.css';
+      // Function to dynamically load script
+      function loadScript(src) {
+        var script = document.createElement('script');
+        script.src = src;
+        script.async = false; // This preserves the execution order
+        document.body.appendChild(script);
+      }
+
+      // Load scripts dynamically
+      loadScript(baseUrl + 'all.js');
+    });
+  </script>
+</html>
