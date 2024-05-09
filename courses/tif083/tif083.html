@@ -4,26 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/darkfteksimpel/all.css">
-    <link rel="stylesheet" href="/darkfteksimpel/courses/courses.css">
-    <link rel="stylesheet" href="/darkfteksimpel/courses/tif083/tif083.css">
-    
-
+    <script>
+      function getBaseUrl() {
+        const onGithub = window.location.hostname.includes('github.io');
+        return onGithub ? '/darkfteksimpel/' : '/';
+      }
+      const baseUrl = getBaseUrl();
+    </script>
 </head>
-
 <body>
     <div class="main">
         <div class="grid_container">
             <div id="left_div">
-    
             </div>
             <div id="right_div">
-
             </div>
         </div>
     </div>
+    <!-- Links will be set via JavaScript below -->
+    <link id="cssAll" rel="stylesheet" href="">
+    <link id="cssCourses" rel="stylesheet" href="">
+    <link id="cssTif083" rel="stylesheet" href="">
+    <script>
+      // Once the DOM is fully loaded, set the correct paths for CSS and dynamically inject scripts
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('cssAll').href = baseUrl + 'all.css';
+        document.getElementById('cssCourses').href = baseUrl + 'courses/courses.css';
+        document.getElementById('cssTif083').href = baseUrl + 'courses/tif083/tif083.css';
+
+        // Function to dynamically load script
+        function loadScript(src) {
+          var script = document.createElement('script');
+          script.src = src;
+          script.async = false; // This preserves the execution order
+          document.body.appendChild(script);
+        }
+
+        // Load scripts dynamically
+        loadScript(baseUrl + 'all.js');
+        loadScript(baseUrl + 'courses/tif083/tif083.js');
+      });
+    </script>
 </body>
-<script src="/darkfteksimpel/all.js">
-</script>
-<script src="/darkfteksimpel/courses/tif083/tif083.js"></script>
 </html>
