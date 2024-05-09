@@ -29,36 +29,57 @@ def createFiles(name, path):
     pPExtensionCss=f"{fullPath}.css"
     pPExtensionJs=f"{fullPath}.js"
     html=f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="all.css">
-        <link rel="stylesheet" href="courses/courses.css">
-        <link rel="stylesheet" href="courses/{name}/{name}.css">
-        
-
-    </head>
-
-    <body>
-        <div class="main">
-            <div class="grid_container">
-                <div id="left_div">
-        
-                </div>
-                <div id="right_div">
-
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <script>
+            function getBaseUrl() {{
+                const onGithub = window.location.hostname.includes('github.io');
+                return onGithub ? '/darkfteksimpel/' : '/';
+            }}
+            const baseUrl = getBaseUrl();
+            </script>
+        </head>
+        <body>
+            <div class="main">
+                <div class="grid_container">
+                    <div id="left_div">
+                    </div>
+                    <div id="right_div">
+                    </div>
                 </div>
             </div>
-        </div>
-    </body>
-    <script src="all.js">
-    </script>
-    <script src="courses/{name}/{name}.js"></script>
-    </html>
-    """
+            <!-- Links will be set via JavaScript below -->
+            <link id="cssAll" rel="stylesheet" href="">
+            <link id="cssCourses" rel="stylesheet" href="">
+            <link id="cssThis" rel="stylesheet" href="">
+            <script>
+            // Once the DOM is fully loaded, set the correct paths for CSS and dynamically inject scripts
+            document.addEventListener('DOMContentLoaded', function () {{
+                document.getElementById('cssAll').href = baseUrl + 'all.css';
+                document.getElementById('cssCourses').href = baseUrl + 'courses/courses.css';
+                document.getElementById('cssThis').href = baseUrl + 'courses/{name}/{name}.css';
+
+                // Function to dynamically load script
+                function loadScript(src) {{
+                var script = document.createElement('script');
+                script.src = src;
+                script.async = false; // This preserves the execution order
+                document.body.appendChild(script);
+                }}
+
+                // Load scripts dynamically
+                loadScript(baseUrl + 'all.js');
+                loadScript(baseUrl + 'courses/{name}/{name}.js');
+            }});
+            </script>
+        </body>
+        </html>
+
+        """
     if not exist(name, path):
         with open(pPExtensionHtml, "w") as file:
             file.write(html)
@@ -77,3 +98,5 @@ def main(path):
     createFiles(name, pathToNew)
     print("Everything worked")
 main(pathToCourses)
+
+
