@@ -109,6 +109,10 @@ footer {
     }
     .navbar-list-drop li a{
         text-decoration: none;
+        padding: 5px;
+    }
+    .navbar-list-drop a:hover {
+        background-color: #575757;
     }
     #drop-down.active {
         display: flex;
