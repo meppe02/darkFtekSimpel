@@ -79,7 +79,6 @@ footer {
     #burger {
         cursor: pointer;
         padding: 0; /* Padding similar to navbar links for consistency */
-        border-radius: 4px;
         display: block; /* Only show the burger in mobile view */
     }
     
@@ -110,6 +109,8 @@ footer {
     .navbar-list-drop li a{
         text-decoration: none;
         padding: 5px;
+        transition: background-color .2s ease-in-out;
+        border-radius: 4px;
     }
     .navbar-list-drop a:hover {
         background-color: #575757;
