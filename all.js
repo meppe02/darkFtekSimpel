@@ -7,7 +7,7 @@ const expfysen_url = "https://stekpannan02.github.io/Expfys-calculator/";
 function checkAndUpdateLink() {
     fetch(expfysen_url, { method: 'HEAD' })
         .then(response => {
-            const linkText = response.ok ? "Expräknare" : "Expräknare (Nere)";
+            const linkText = response.ok ? "Expfysräknare" : "Expfysräknare (Nere)";
             updateNavbarLink(linkText);
         })
         .catch(error => {
