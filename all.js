@@ -39,6 +39,7 @@ function updateNavbarLink(text) {
     console.log("Navbar and footer added to DOM");
     checkAndUpdateLink();
 }
+
 main()
 /*
 document.addEventListener('load', () => {
