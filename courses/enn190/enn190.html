@@ -7,7 +7,7 @@
     <script>
         function getBaseUrl() {
             const onGithub = window.location.hostname.includes('github.io');
-            return onGithub ? '/darkfteksimpel/' : '/';
+            return (onGithub)? '/darkfteksimpel/' : '/';
         }
         const baseUrl = getBaseUrl();
     </script>
@@ -26,8 +26,8 @@
     <link id="cssCourses" rel="stylesheet" href="">
     <link id="cssEnn190" rel="stylesheet" href="">
     <script>
-      // Once the DOM is fully loaded, set the correct paths for CSS and dynamically inject scripts
-      document.addEventListener('DOMContentLoaded', function () {
+        // Once the DOM is fully loaded, set the correct paths for CSS and dynamically inject scripts
+        document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('cssAll').href = baseUrl + 'all.css';
         document.getElementById('cssCourses').href = baseUrl + 'courses/courses.css';
         document.getElementById('cssEnn190').href = baseUrl + 'courses/enn190/enn190.css';

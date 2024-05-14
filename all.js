@@ -3,7 +3,6 @@ const isGitHub = window.location.hostname.includes('github.io');
 const repoName = 'darkfteksimpel'; // Repository name
 const url = isGitHub ? `/${repoName}/` : 'http://127.0.0.1:5500/';
 const expfysen_url = "https://stekpannan02.github.io/Expfys-calculator/";
-
 // Function to check website status and update link accordingly
 function checkAndUpdateLink() {
     fetch(expfysen_url, { method: 'HEAD' })
@@ -26,9 +25,8 @@ function updateNavbarLink(text) {
             <li><a href="${expfysen_url}">${text}</a></li>
         `;
     }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+}function main(){
+    console.log("DOM fully loaded and parsed");
     document.body.innerHTML = `
         <nav class="navbar">
             <ul class="navbar-list">
@@ -38,5 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
         ${document.body.innerHTML}
         <footer>End</footer>
     `;
+    console.log("Navbar and footer added to DOM");
+    checkAndUpdateLink();
+}
+main()
+/*
+document.addEventListener('load', () => {
+    console.log("DOM fully loaded and parsed");
+    document.body.innerHTML = `
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <!-- Links will be populated by checkAndUpdateLink function -->
+            </ul>
+        </nav>
+        ${document.body.innerHTML}
+        <footer>End</footer>
+    `;
+    console.log("Navbar and footer added to DOM");
     checkAndUpdateLink();
 });
+*/
