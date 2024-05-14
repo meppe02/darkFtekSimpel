@@ -53,7 +53,7 @@ function updateNavbarLink(text) {
             </div>
         </nav>
         ${document.body.innerHTML}
-        <footer>End</footer>
+        <footer>&copy DARKFTEK (darkftek@gmail.com)</footer>
     `;
     console.log("Navbar and footer added to DOM");
     checkAndUpdateLink();
