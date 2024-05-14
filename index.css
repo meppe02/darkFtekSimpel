@@ -26,15 +26,31 @@ body {
     color: #007bff;
 }
 /*actuall courses things*/
-.clickable:hover{
-    background-color: red;
+.clickable {
+    display: flex;  /* Ensures that this div acts as a flex container */
+    justify-content: center;  /* Centers children horizontally */
+    align-items: center;  /* Centers children vertically */
+    height: 100%;  /* Makes sure the clickable div fills its parent div */
 }
-.clickable a{
+
+.clickable:hover {
+    background-color: white;  /* Background color change on hover */
+}
+
+.clickable a {
     text-decoration: none;
     color: #007bff;
+    padding: 20px;  /* Adjust padding if necessary */
+    width: 100%;  /* Ensures the anchor tag fills its parent */
+    height: 100%;  /* Ensures the anchor tag fills its parent */
+    display: flex;  /* Allows the use of flexbox properties */
+    justify-content: center;  /* Centers text horizontally */
+    align-items: center;  /* Centers text vertically */
+    box-sizing: border-box;  /* Includes padding in width/height calculation */
 }
-.clickable a:visited, a:active, a:focus {
-    text-decoration: none; /* No underline or additional decoration */
-    outline: none; /* Remove the outline when focused */
-    color: #007bff;
+
+.clickable a:visited, .clickable a:active, .clickable a:focus {
+    text-decoration: none;  /* Ensures text isn't underlined after clicking */
+    outline: none;  /* Removes the focus outline */
+    color: #007bff;  /* Keeps the text color consistent */
 }
