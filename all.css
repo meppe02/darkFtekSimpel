@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     color: white;
+    font-family: sans-serif;
 }
 body {
     display: flex;
@@ -44,7 +45,7 @@ footer {
 .navbar-list {
     list-style-type: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .navbar-list li {
