@@ -58,6 +58,9 @@ footer {
     padding: 12px 24px; /* Increased padding to make the links larger */
     border-radius: 4px;
     transition: background-color 0.2s ease-in-out;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .navbar-list a:hover {
