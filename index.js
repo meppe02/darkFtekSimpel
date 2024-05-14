@@ -18,3 +18,4 @@ let htmlContent = courses.sort().map(course => {
 }).join('');
 
 document.getElementById(id).innerHTML = htmlContent;
+
