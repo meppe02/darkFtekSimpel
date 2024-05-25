@@ -4,7 +4,7 @@ const repoName = 'darkfteksimpel'; // Repository name
 const url = isGitHub ? `/${repoName}/` : 'http://127.0.0.1:5500/';
 const expfysen_url = "https://stekpannan02.github.io/Expfys-calculator/";
 const svgUrl = url + 'images/ftek.svg'; // Path to your local SVG file
-
+const hem_state=false
 // Function to check website status and update link accordingly
 function checkAndUpdateLink() {
     fetch(expfysen_url, { method: 'HEAD' })
@@ -28,11 +28,12 @@ function updateNavbarLink(text) {
         </a>
     `; // Add SVG logo
 
-    const linksHTML = `
-        <li><a href="${url}index.html" class="nav-items">Hem</a></li>
+    let linksHTML = (hem_state)?'<li><a href="${url}index.html" class="nav-items">Hem</a></li>':''
+    linksHTML+=`
         <li><a href="${url}about.html" class="nav-items">Om oss</a></li>
         <li><a href="${expfysen_url}" class="nav-items">${text}</a></li>
     `;
+    
     if (navbarList) {
         navbarList.innerHTML = logoHTML + linksHTML;
     }
