@@ -38,6 +38,7 @@ body {
 }
 
 .clickable a {
+    font-size: 1.5pc;
     text-decoration: none;
     color: #007bff;
     padding: 20px;  /* Adjust padding if necessary */

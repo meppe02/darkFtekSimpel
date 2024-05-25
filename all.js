@@ -3,6 +3,8 @@ const isGitHub = window.location.hostname.includes('github.io');
 const repoName = 'darkfteksimpel'; // Repository name
 const url = isGitHub ? `/${repoName}/` : 'http://127.0.0.1:5500/';
 const expfysen_url = "https://stekpannan02.github.io/Expfys-calculator/";
+const svgUrl = url + 'images/ftek.svg'; // Path to your local SVG file
+
 // Function to check website status and update link accordingly
 function checkAndUpdateLink() {
     fetch(expfysen_url, { method: 'HEAD' })
@@ -16,28 +18,35 @@ function checkAndUpdateLink() {
         });
 }
 
+// Function to update the navbar links
 function updateNavbarLink(text) {
     const navbarList = document.querySelector('.navbar-list');
     const navbarListDropDown = document.querySelector('.navbar-list-drop');
+    const logoHTML = `
+        <a href="${url}index.html" class="logo-box">
+            <img src="${svgUrl}" class="logo"/>
+        </a>
+    `; // Add SVG logo
+
+    const linksHTML = `
+        <li><a href="${url}index.html" class="nav-items">Hem</a></li>
+        <li><a href="${url}about.html" class="nav-items">Om oss</a></li>
+        <li><a href="${expfysen_url}" class="nav-items">${text}</a></li>
+    `;
     if (navbarList) {
-        navbarList.innerHTML = `
-            <li><a href="${url}index.html">Hem</a></li>
-            <li><a href="${url}about.html">Om oss</a></li>
-            <li><a href="${expfysen_url}">${text}</a></li>
-        `;
+        navbarList.innerHTML = logoHTML + linksHTML;
     }
     if (navbarListDropDown) {
-        navbarListDropDown.innerHTML = `
-            <li><a href="${url}index.html">Hem</a></li>
-            <li><a href="${url}about.html">Om oss</a></li>
-            <li><a href="${expfysen_url}">${text}</a></li>
-        `;
+        navbarListDropDown.innerHTML = linksHTML;
     }
-    
-}function main(){
+}
+
+// Main function to initialize the navbar and other elements
+function main() {
     console.log("DOM fully loaded and parsed");
     document.body.innerHTML = `
         <nav class="navbar">
+        
             <ul class="navbar-list">
                 <!-- Links will be populated by checkAndUpdateLink function -->
             </ul>
@@ -51,37 +60,28 @@ function updateNavbarLink(text) {
                     <!-- Links will be populated by checkAndUpdateLink function -->
                 </ul>
             </div>
+            
         </nav>
         ${document.body.innerHTML}
         <footer>&copy DARKFTEK (darkftek@gmail.com)</footer>
     `;
     console.log("Navbar and footer added to DOM");
+
+    // Update the navbar links with the SVG logo
     checkAndUpdateLink();
+
+    // Burger menu event listener
+    document.getElementById("burger").addEventListener("click", () => {
+        const dropDown = document.getElementById("drop-down");
+        if (dropDown.classList.contains("not-active")) {
+            dropDown.classList.remove("not-active");
+            dropDown.classList.add("active");
+        } else {
+            dropDown.classList.remove("active");
+            dropDown.classList.add("not-active");
+        }
+    });
 }
-main()
-document.getElementById("burger").addEventListener("click", () => {
-    const dropDown = document.getElementById("drop-down");
-    if (dropDown.classList.contains("not-active")) {
-        dropDown.classList.remove("not-active");
-        dropDown.classList.add("active");
-    } else {
-        dropDown.classList.remove("active");
-        dropDown.classList.add("not-active");
-    }
-});
-/*
-document.addEventListener('load', () => {
-    console.log("DOM fully loaded and parsed");
-    document.body.innerHTML = `
-        <nav class="navbar">
-            <ul class="navbar-list">
-                <!-- Links will be populated by checkAndUpdateLink function -->
-            </ul>
-        </nav>
-        ${document.body.innerHTML}
-        <footer>End</footer>
-    `;
-    console.log("Navbar and footer added to DOM");
-    checkAndUpdateLink();
-});
-*/
+ 
+// Run the main function
+main();
